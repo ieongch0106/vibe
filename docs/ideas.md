@@ -7,7 +7,7 @@
 # Team 
 • Juliano Wahab, MopolyWasHere
 • Mohammed Aaquil Khan 
-• Chou Heng Ieong 
+• Chou Heng Ieong, ieongch0106 
 • Arnav Mohan
 
 # Innovative Idea 
