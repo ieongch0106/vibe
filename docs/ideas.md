@@ -3,3 +3,13 @@
 
 # Application Name
 • vibe
+
+# Team 
+• Juliano Wahab, MopolyWasHere
+• Mohammed Aaquil Khan 
+• Chou Heng Ieong 
+• Arnav Mohan
+
+# Innovative Idea 
+
+• The application is a service to help party hosts and guests have a better experience. Guests can choose songs and add them to the queue where everyone votes for the next song. All the songs played get added to a playlist on Spotify that anyone can access later on. The Party can have a theme, for instance, 80's music, and would suggest and play only songs in the genre. Guests can get private invites to parties and see the capacity and location of public parties in your area. 
