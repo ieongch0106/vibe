@@ -1,0 +1,25 @@
+html,
+body {
+    height: 100%;
+}
+/* Show it's not fixed to the top */
+body {
+    min-height: 75rem;
+  }
+
+body {
+    display: block;
+    align-items: center;
+    /* padding-top: 40px; */
+    padding-bottom: 40px;
+    background-color: #e4b2e1;
+}
+
+.party-list {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
+    align-items: center;
+}
