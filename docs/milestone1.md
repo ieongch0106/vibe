@@ -2,14 +2,21 @@
 ## Log in 
 • Every application needs a log in page to obtain user's identification and authentication.
 ![Vibe - Log in page@1 25x](https://user-images.githubusercontent.com/71384413/159188337-d8a86023-e357-437a-9f13-1bad72c1c49f.png)
+HTML/CSS
+![Screenshot 2022-03-26 214943](https://user-images.githubusercontent.com/71384413/160263243-748596fb-7f64-4ca2-8947-6f9ca386d6db.jpg)
+
 
 ## Sign up
 • A page for the user to sign up to become a Viber or a member of the application.
 ![Vibe - Sign up page@1 25x](https://user-images.githubusercontent.com/71384413/158908060-212e9be3-9fea-44a7-b1e0-39b31088842e.png)
+HTML/CSS
+![Screenshot 2022-03-26 214953](https://user-images.githubusercontent.com/71384413/160263208-97578d72-25ce-4159-be2d-e69ffca177dc.jpg)
 
 ## Location page
 • get the location of the user so we can show the user the best parties near them
 ![Vibe - Location page@1 25x](https://user-images.githubusercontent.com/71384413/159186970-3682bbfa-2ab0-4188-ae81-c37cd1085dea.png)
+HTML/CSS
+![Screenshot 2022-03-26 214925](https://user-images.githubusercontent.com/71384413/160263199-c855e159-1eee-49c3-995e-aae2f2f2dd64.jpg)
 
 ## Home page
 The home page shows the top 5 parties near the user's location.
@@ -20,6 +27,8 @@ If our user didn't find the party that they want: <br>
 <br>
 User can host their party by clicking 'Host a party' in the navigation bar. 
 ![Vibe - homepage@1 25x](https://user-images.githubusercontent.com/71384413/159187039-82a96782-ae80-4c67-91dd-ed4526f1c4d5.png)
+HTML/CSS
+![Screenshot 2022-03-26 213433](https://user-images.githubusercontent.com/71384413/160263408-07567bc5-bc2e-4d8f-9a99-565cddb4b944.jpg)
 
 ## Profile
 • User can see and update their profile information here. They can also view which party history here.
@@ -28,14 +37,22 @@ User can host their party by clicking 'Host a party' in the navigation bar.
 <br>
 • User can also log out of their account.
 ![Vibe - profile@1 25x](https://user-images.githubusercontent.com/71384413/159187605-530843f7-5f6b-4f96-bf77-f5772e8ca411.png)
+HTML/CSS
+![Screenshot 2022-03-26 221145](https://user-images.githubusercontent.com/71384413/160264244-ea515d09-cb5d-47d2-a7a3-46c31a6b9306.jpg)
+
 
 ## Hosting a party
 • User can create a new party and store it in our database.
 ![Vibe - Host a party page@1 25x](https://user-images.githubusercontent.com/71384413/159187671-94da66c1-632b-4920-8aca-7e39d2a811f1.png)
+HTML/CSS
+![Screenshot 2022-03-26 222603](https://user-images.githubusercontent.com/71384413/160264299-63215454-0571-4e30-b2b9-2bcad950b5f3.jpg)
 
 ## Search bar
 • It returns user a page of parties and theirs names in which contains their input.
 ![Vibe - Search@1 25x](https://user-images.githubusercontent.com/71384413/159187786-658a10c1-216e-4ef5-8365-6ef60c138ec9.png)
+HTML/CSS
+![Screenshot 2022-03-26 222029](https://user-images.githubusercontent.com/71384413/160264340-5853ee16-360d-4302-bfd6-d33588467bfe.jpg)
+
 
 ## Juliano Wahab Worked on bottom 3:
 ## Browse Parties/Explore
