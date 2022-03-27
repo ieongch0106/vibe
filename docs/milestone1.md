@@ -43,14 +43,16 @@ User can host their party by clicking 'Host a party' in the navigation bar.
 ![Vibe - Browse page@1 25x](https://user-images.githubusercontent.com/71384413/159188202-d2a6f01d-3f36-42b1-827d-f651c8c0703d.png)
 • Html Page
 
-<img width="621" alt="Screen Shot 2022-03-26 at 8 54 44 PM" src="https://user-images.githubusercontent.com/99213259/160262104-6f7f2f30-d75d-49ac-bfdd-f18e6e155113.png">
+<img width="582" alt="Screen Shot 2022-03-26 at 9 23 48 PM" src="https://user-images.githubusercontent.com/99213259/160262726-89bef80c-d486-4686-b1b6-1f8b091e5587.png">
+
 
 ## Party page
 • After the user clicked the party. It links to a page which contains all info of the party, and the user has the option to like and submit their song suggestion.
 ![Vibe - Party Page@1 25x](https://user-images.githubusercontent.com/71384413/159188173-6178c50a-6575-4628-8d5c-0d445103f35b.png)
 • Html Page
 
-<img width="621" alt="Screen Shot 2022-03-26 at 8 54 46 PM" src="https://user-images.githubusercontent.com/99213259/160262041-9d056187-fdae-4a9f-bba5-cebc24370356.png">
+<img width="582" alt="Screen Shot 2022-03-26 at 9 23 06 PM" src="https://user-images.githubusercontent.com/99213259/160262710-21378a79-5abd-4eb5-9733-87d18c4128e7.png">
+
 
 ## Party page after submit
 • After the user clicked 'submit'. It links to a page which contains all info of the party, and the user can see the song they have submitted. <br>
@@ -58,10 +60,13 @@ User can host their party by clicking 'Host a party' in the navigation bar.
 ![Vibe - Party Page After Submit@1 25x](https://user-images.githubusercontent.com/71384413/159188177-707a0ee9-a9e4-46d7-8541-da00253d5608.png)
 • Html Page
 
-<img width="621" alt="Screen Shot 2022-03-26 at 8 54 41 PM" src="https://user-images.githubusercontent.com/99213259/160262044-5a4593c9-3ce0-49f7-98aa-f6779f9eeb5d.png">
+<img width="582" alt="Screen Shot 2022-03-26 at 9 22 07 PM" src="https://user-images.githubusercontent.com/99213259/160262734-7977c45e-d697-4a28-afb8-876cb9a3ad1b.png">
+
+
 • HTML/CSS zip file of the 3 webpages
 
-[Vibe.zip](https://github.com/ieongch0106/vibe/files/8356592/Vibe.zip)
+
+[Vibe.zip](https://github.com/ieongch0106/vibe/files/8356644/Vibe.zip)
 
 
 
