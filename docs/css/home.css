@@ -12,7 +12,7 @@ body {
     align-items: center;
     /* padding-top: 40px; */
     padding-bottom: 40px;
-    background-color: #e4b2e1;
+    background-color: #de99e9;
 }
 
 .party-list {
@@ -22,4 +22,14 @@ body {
     padding: 20px;
     margin: auto;
     align-items: center;
+}
+
+#searchbar {
+    color: white;
+    font-weight: bold;
+    background-color: #de99e9;
+}
+
+a {
+    color: #49AEA0;
 }
