@@ -8,7 +8,7 @@ const JSONfile = '../database/user.json'
 
 let user_data = [
     // { 
-    //     'id': 'aaa@gmail.com'
+    //     'id': 'aaa',
     //     'password': '12345678'
     // }
 ]

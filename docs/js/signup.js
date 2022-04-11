@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs/promises';
+// import { readFile, writeFile } from 'fs/promises';
 
 const username = document.getElementById('floatingInput')
 const password = document.getElementById('floatingPassword')
@@ -8,21 +8,21 @@ const JSONfile = '../database/user.json'
 
 let user_data = [
     // { 
-        //     'id': 'aaa@gmail.com'
-        //     'password': '12345678'
-        // }
+    //         'id': 'aaa',
+    //         'password': '12345678'
+    //     }
     ]
     
 signup.addEventListener('click', ()=>verify())
 
 async function verify() {
-    user_data = await readFile(JSONfile, { encoding: 'utf8' });
+    // user_data = await readFile(JSONfile, { encoding: 'utf8' });
     const name = username.value
     const pw = password.value
     if (pw.length < 8) {
         alert('Password should contain at least 8 chacters')
     } else {
-       return !userExist(name) ? addUser(name, pw) : alert('Username has already been taken')
+        return !userExist(name) ? addUser(name, pw) : alert('Username has already been taken')
     }
 }
 
