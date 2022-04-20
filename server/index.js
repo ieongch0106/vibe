@@ -78,7 +78,7 @@ async function addZipCode(Username, zipcode) {
 
 // Create the Express app and set the port number.
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Add Middleware
 app.use(express.json());
