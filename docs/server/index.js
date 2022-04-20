@@ -55,11 +55,13 @@ async function verifyUser(Username, Password) {
     for (const user of users) {
         if (user.id === Username) {
             if (user.password === Password) {
-                return true
+                return 200
+            } else {
+              return 401
             }
         }
     }
-    return false
+    return 404
 }
 
 async function addZipCode(Username, zipcode) {
@@ -99,7 +101,13 @@ app.post('/user/register', async (req, res) => {
 app.get('/login', async (req, res) => {
   const data = req.query;
   const result = await verifyUser(data.id, data.password)
-  result ? res.status(200).json({'Status': 'Success'}) : res.status(401).json({'Error': 'Unauthorized'})
+  if (result === 200) {
+    res.status(200).json({'Status': 'Success'})
+  } else if (result === 401) {
+      res.status(401).json({'Error': 'Unauthorized'})
+  } else {
+      res.status(404).json({'Error': 'User Not Found'})
+  }
 });
 
 app.post('/user/profile/zipcode/new', async (req, res) => {

@@ -24,7 +24,7 @@ async function addZipCode() {
     }).then(response => response.json())
     .then(data => {
         if (data.Status === 'Success') {
-            alert(JSON.stringify(data.Status))
+            console.log(JSON.stringify(data.Status))
             location.href = 'home.html'
         } else {
             alert(JSON.stringify(data))

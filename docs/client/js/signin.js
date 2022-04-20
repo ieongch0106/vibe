@@ -15,11 +15,11 @@ async function verify() {
     }).then(response => response.json())
     .then(data => {
         if (data.Status === 'Success') {
-            alert(JSON.stringify(data.Status))
+            console.log(JSON.stringify(data.Status))
             location.href='html/home.html'
             lsSet('user', JSON.stringify( {'id': id} ))
         } else {
-            alert(JSON.stringify(data))
+            alert(JSON.stringify(data.Error))
         }
     }).catch(error => {
         console.log(error)
