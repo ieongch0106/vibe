@@ -1,0 +1,16 @@
+{
+  "name": "vibe",
+  "version": "1.0.0",
+  "description": "CS 326 project Vibe",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  }
+}
