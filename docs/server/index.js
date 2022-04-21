@@ -133,7 +133,6 @@ app.get('/home', async (req, res) => {
   res.status(200).json(parties);
 });
 
-<<<<<<< HEAD
 app.get('/myinfo', async (req, res) => {
   const user = await readUser();
   res.status(200).json(user);
@@ -142,12 +141,11 @@ app.get('/myinfo', async (req, res) => {
 app.get('/search', async (req, res) => {
   const parties = await readParties();
   res.status(200).json(parties);
-=======
+});
 app.post('/user/host', async (req, res) => {
   const data = req.query;
   await saveParties(data.name, data.zip, data.description);
   res.status(200).json({ 'Status': 'Success' });
->>>>>>> abb98a14401adf450a5f9a78b8efce6e616e488a
 });
 
 // This matches all routes that are not defined.
@@ -159,4 +157,3 @@ app.all('*', async (request, response) => {
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
 });
-
