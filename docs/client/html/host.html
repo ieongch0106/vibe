@@ -16,7 +16,9 @@
   <link href="../css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="../css/hostingparty.css" rel="stylesheet">
+  <link href="../css/host.css" rel="stylesheet">
+  <!-- Javascript file -->
+  <script type='module' src="../js/host.js" defer></script>
 </head>
 
 <body class="text-center">
@@ -53,22 +55,22 @@
       </div>
       <div class="form-floating">
         <label for="floatingInput">Name of the party</label><br>
-        <input type="email" class="form-control" id="partyname" placeholder="Enter name of you party..."><br>
+        <input type="text" class="form-control" id="name" placeholder="Enter name of you party..."><br>
         
       </div>
       <div class="form-floating">
         <label for="floatingPassword">Where are you hosting it?</label><br>
-        <input type="password" class="form-control" id="hosting" placeholder="Enter the party's zipcode..."><br>
+        <input type="text" class="form-control" id="zip" placeholder="Enter the party's zipcode..."><br>
         
       </div>
       <div class="form-floating">
         <label for="floatingPassword">What is you party about?</label><br>
-        <input type="password" class="form-control" id="floatingPassword"><br>
+        <input type="text" class="form-control" id="description"><br>
        
       </div>
 
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit" id="signup-btn">SUBMIT</button>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" id="submit-btn">SUBMIT</button>
 
       
 
