@@ -3,6 +3,7 @@ import { readFile, writeFile } from 'fs/promises';
 import logger from 'morgan';
 
 const USER_FILE = './database/user.json';
+const PARTIES_FILE = './database/parties.json';
 
 // Returns a function that will read an user file.
 function readUserFile(path) {
@@ -20,6 +21,7 @@ function readUserFile(path) {
 
 // Create functions for reading from files.
 const readUser = readUserFile(USER_FILE);
+const readParties = readUserFile(PARTIES_FILE);
 
 //check if an user has already existed
 async function userExist(Username) {
@@ -116,6 +118,21 @@ app.post('/user/profile/zipcode/new', async (req, res) => {
   res.status(200).json({'Status': 'Success'})
 });
 
+app.get('/home', async (req, res) => {
+  const parties = await readParties();
+  res.status(200).json(parties);
+});
+
+app.get('/myinfo', async (req, res) => {
+  const user = await readUser();
+  res.status(200).json(user);
+});
+
+app.get('/search', async (req, res) => {
+  const parties = await readParties();
+  res.status(200).json(parties);
+});
+
 // This matches all routes that are not defined.
 app.all('*', async (request, response) => {
   response.status(404).send(`Not found: ${request.path}`);
@@ -125,3 +142,4 @@ app.all('*', async (request, response) => {
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
 });
+
