@@ -14,7 +14,7 @@ const lsGet = (k) => ls.getItem(k);
 
 const lsSet = (k, v) => ls.setItem(k, v);
 
-signin.addEventListener('click', ()=>verify())
+// signin.addEventListener('click', ()=>verify())
 
 async function displayUsers() {
     await fetch(`/myinfo`, {
