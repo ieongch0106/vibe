@@ -5,7 +5,7 @@ https://vibe.herokuapp.com/client/
 Chou Heng Ieong - Implemented front-end and back-end of login page, sign up page and location page.<br>
 Created server/index.js and implemented 3 routing methods. Created database/user.json to store user's data. Deploy Heroku App<br>
 Mohammed Aaquil Khan - Implemented home and host webpages. Home webpage reads from a json file named parties.json and displays 5 parties as a list on the webpage. Host webpage allows the user to enter the data related to the party being hosted and then stores the data in parties.json file.<br>
-Arnav Mohan - Implemented the search page and the Information page. Search page uses inputed data to find a show results for parties that match the inputed data from the parties.json file. Info page displays information of the user after sign in, thorugh through the database/user.json file.
+Arnav Mohan - Implemented the search page and the Information page. Search page uses inputed data to find and display results for parties that match the inputed data from the parties.json file. Info page displays information of the user after sign in, through the database/user.json file.
 .<br>
 .<br>
 ## Representation of APIs for Vibe
