@@ -133,6 +133,16 @@ app.get('/home', async (req, res) => {
   res.status(200).json(parties);
 });
 
+app.get('/myinfo', async (req, res) => {
+  const user = await readUser();
+  res.status(200).json(user);
+});
+
+app.get('/search', async (req, res) => {
+  const parties = await readParties();
+  res.status(200).json(parties);
+})
+
 app.post('/user/host', async (req, res) => {
   const data = req.query;
   await saveParties(data.name, data.zip, data.description);
@@ -148,3 +158,4 @@ app.all('*', async (request, response) => {
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
 });
+

@@ -4,7 +4,7 @@ https://vibe.herokuapp.com/client/
 ## Breakdown 
 Chou Heng Ieong - Implemented front-end and back-end of login page, sign up page and location page.<br>
 Created server/index.js and implemented 3 routing methods. Created database/user.json to store user's data. Deploy Heroku App<br>
-.<br>
+Mohammed Aaquil Khan - Implemented home and host webpages. Home webpage reads from a json file named parties.json and displays 5 parties as a list on the webpage. Host webpage allows the user to enter the data related to the party being hosted and then stores the data in parties.json file.<br>
 .<br>
 .<br>
 ## Representation of APIs for Vibe
@@ -37,4 +37,11 @@ The client side checks if the zip code input contains exactly 5 digits. If the i
 After the button is clicked, the client checks if the value of zip code is exactly 5 digits. If it's not, it sends the error message to the client from the server.<br>
 If it's exactly 5 digits, we pass the username, zip code and **'POST'** method to the **/user/profile/zipcode/new** API by using fetch. <br>
 Then the server will find the user object in the database and adds member 'zipcode' to the object.
-![location](https://user-images.githubusercontent.com/71384413/164320859-ec94d78a-8b5f-4f8a-ba85-4215b8995737.jpg)
+![location](https://user-images.githubusercontent.com/71384413/164320859-ec94d78a-8b5f-4f8a-ba85-4215b8995737.jpg) 
+### Find Parties
+The user using the **'GET'** method will receive a list of all the parties created that are saved on ther server, if no perty exists it will send an error.
+![partyPage](https://user-images.githubusercontent.com/71384413/159188202-d2a6f01d-3f36-42b1-827d-f651c8c0703d.png)
+### Add Song to Party Queue
+The user using the **'POST'** method by fetching from the /createparty it will then fetch again from the spotify api from their music library to check if the song exists. Once the song is found and valid it can be added to the server of songs created, in that specific party. If the song does not exist an error message will be shown saying Song does not exist.
+![browseP](https://user-images.githubusercontent.com/71384413/159188173-6178c50a-6575-4628-8d5c-0d445103f35b.png)
+
