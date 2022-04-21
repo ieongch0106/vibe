@@ -1,5 +1,4 @@
 const partiesClass = document.getElementsByClassName("parties");
-let parties = undefined;
 
 async function displayParties() {
     await fetch(`/home`, {
@@ -7,7 +6,7 @@ async function displayParties() {
     }).then(response => response.json())
         .then(data => {
             // console.log(data);
-            parties = data;
+            const parties = data;
             // console.log(parties);
             const numElem = parties.length > 5 ? 5 : parties.length;
             for (let i = 0; i < numElem; ++i) {
