@@ -40,6 +40,8 @@ Then the server will find the user object in the database and adds member 'zipco
 ![location](https://user-images.githubusercontent.com/71384413/164320859-ec94d78a-8b5f-4f8a-ba85-4215b8995737.jpg) 
 ### Find Parties
 The user using the **'GET'** method will receive a list of all the parties created that are saved on ther server, if no perty exists it will send an error.
+![partyPage](https://user-images.githubusercontent.com/71384413/159188202-d2a6f01d-3f36-42b1-827d-f651c8c0703d.png)
 ### Add Song to Party Queue
-The user using the **'POST'** method by fetching from the /createparty it will then fetch again from the spotify api from their music library to check if the song exists. Once the song is found and valid it can be added to the server of songs created, in that specific party. If the song does not exist an error message will be shown saying Song does not exist. 
+The user using the **'POST'** method by fetching from the /createparty it will then fetch again from the spotify api from their music library to check if the song exists. Once the song is found and valid it can be added to the server of songs created, in that specific party. If the song does not exist an error message will be shown saying Song does not exist.
+![browseP](https://user-images.githubusercontent.com/71384413/159188173-6178c50a-6575-4628-8d5c-0d445103f35b.png)
 
