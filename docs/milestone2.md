@@ -1,5 +1,7 @@
 # Milestone 2
-## breakdown 
+## Heroku App
+https://vibe.herokuapp.com/client/
+## Breakdown 
 Chou Heng Ieong - Implemented front-end and back-end of login page, sign up page and location page.<br>
 Created server/index.js and implemented 3 routing methods. Created database/user.json to store user's data. Deploy Heroku App<br>
 .<br>
