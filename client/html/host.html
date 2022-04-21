@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -7,41 +8,20 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.88.1">
-  <title>home</title>
+  <title>Party Hosting</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbar-static/">
-
-
+  <link href="https://getbootstrap.com/docs/5.1/examples/sign-in/" rel="canonical">
 
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
-  
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-
 
   <!-- Custom styles for this template -->
-  <link href="../css/home.css" rel="stylesheet">
+  <link href="../css/host.css" rel="stylesheet">
   <!-- Javascript file -->
-  <script type='module' src="../js/home.js" defer></script>
+  <script type='module' src="../js/host.js" defer></script>
 </head>
 
-<body>
-
+<body class="text-center">
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white border border-light mb-4">
         <div class="container">
@@ -66,22 +46,39 @@
         </div>
     </nav>
 </header>
+  <main class="form-signup">
 
-  <main class="party-list">
+    <form>
+      
+      <div>
+        <h5>tell us something about your party...</h5>
+      </div>
+      <div class="form-floating">
+        <label for="floatingInput">Name of the party</label><br>
+        <input type="text" class="form-control" id="name" placeholder="Enter name of you party..."><br>
+        
+      </div>
+      <div class="form-floating">
+        <label for="floatingPassword">Where are you hosting it?</label><br>
+        <input type="text" class="form-control" id="zip" placeholder="Enter the party's zipcode..."><br>
+        
+      </div>
+      <div class="form-floating">
+        <label for="floatingPassword">What is you party about?</label><br>
+        <input type="text" class="form-control" id="description"><br>
+       
+      </div>
 
-    <h3>best parties near you</h3>
 
-    <ol class="parties">
-    </ol>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" id="submit-btn">SUBMIT</button>
 
-    <h6>didn't find what you want? <a href="#">browse parties</a></h6>
+      
+
+    </form>
 
   </main>
 
-
-  <script src="../js/bootstrap.bundle.min.js"></script>
-
-
 </body>
+<br>
 
 </html>
