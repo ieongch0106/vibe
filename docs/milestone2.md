@@ -38,6 +38,7 @@ After the button is clicked, the client checks if the value of zip code is exact
 If it's exactly 5 digits, we pass the username, zip code and **'POST'** method to the **/user/profile/zipcode/new** API by using fetch. <br>
 Then the server will find the user object in the database and adds member 'zipcode' to the object.
 ![location](https://user-images.githubusercontent.com/71384413/164320859-ec94d78a-8b5f-4f8a-ba85-4215b8995737.jpg) 
+### Find Parties
 The user using the **'GET'** method will receive a list of all the parties created that are saved on ther server, if no perty exists it will send an error.
 ### Add Song to Party Queue
 The user using the **'POST'** method by fetching from the /createparty it will then fetch again from the spotify api from their music library to check if the song exists. Once the song is found and valid it can be added to the server of songs created, in that specific party. If the song does not exist an error message will be shown saying Song does not exist. 
