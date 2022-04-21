@@ -1,6 +1,3 @@
-// const username = document.getElementById('floatingInput')
-// const password = document.getElementById('floatingPassword')
-const explore = document.getElementById('explore');
 
 const explore = document.getElementsByClassName("parties");
 
@@ -24,4 +21,4 @@ async function displayParties() {
         })
 }
 
-displayParties();
+displayParties(); 
