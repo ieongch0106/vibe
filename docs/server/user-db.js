@@ -56,4 +56,12 @@ export class VibeDatabase {
             return true;
         }
     }
+
+    async readUsers() {
+        return await this.user.find({}).toArray();
+    }
+
+    async addZipCode(id, zip) {
+        await this.user.update({"_id": id}, {$set: {"zip": zip}});
+    }
 }
