@@ -93,34 +93,34 @@ class VibeServer {
       res.send('Error');
     });
 
-    app.post('/user/profile/zipcode/new', async (req, res) => {
+    this.app.post('/user/profile/zipcode/new', async (req, res) => {
       const data = req.query;
       await this.db.addZipCode(data.id, data.zipcode)
       res.status(200).json({ 'Status': 'Success' })
     });
     
-    app.get('/home', async (req, res) => {
+    this.app.get('/home', async (req, res) => {
       const parties = await this.dbParty.readParties();
       res.status(200).json(parties);
     });
     
-    app.get('/myinfo', async (req, res) => {
+    this.app.get('/myinfo', async (req, res) => {
       const user = await this.db.readUser();
       res.status(200).json(user);
     });
     
-    app.get('/search', async (req, res) => {
+    this.app.get('/search', async (req, res) => {
       const parties = await this.dbParty.readParties();
       res.status(200).json(parties);
     });
-    app.post('/user/host', async (req, res) => {
+    this.app.post('/user/host', async (req, res) => {
       const data = req.query;
       await this.dbParty.addParty(data.name, data.zip, data.description);
       res.status(200).json({ 'Status': 'Success' });
     });
     
     // This matches all routes that are not defined.
-    app.all('*', async (request, response) => {
+    this.app.all('*', async (request, response) => {
       response.status(404).send(`Not found: ${request.path}`);
     });
   }
