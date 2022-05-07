@@ -18,13 +18,13 @@ ZipCode.addEventListener('input', () => {
 
 async function addZipCode() {
     const id = JSON.parse(lsGet('user')).id
+    location.href = 'home.html'
     const zc = ZipCode.value
-    await fetch(`/user/profile/zipcode/new?id=${id}&zipcode=${zc}`, {
+    await fetch(`/user/profile/zipcode/new?username=${id}&zipcode=${zc}`, {
         method: 'POST'
     }).then(response => response.json())
     .then(data => {
         if (data.Status === 'Success') {
-            console.log(JSON.stringify(data.Status))
             location.href = 'home.html'
         } else {
             alert(JSON.stringify(data))

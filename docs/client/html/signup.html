@@ -24,24 +24,24 @@
 <body class="text-center">
   <main class="form-signup">
 
-    <form>
+    <form action="/register", method="post">
       
       <div class="mb-4">
         <h5>tell us a little bit about yourself</h5>
       </div>
       <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Timr1234">
-        <label for="floatingInput">username</label>
+        <input type="text" class="form-control floatingInput" placeholder="Username" name="username" id='username'>
+        <label>username</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">password</label>
+        <input type="password" class="form-control floatingPassword" placeholder="Password" name="password" id="password">
+        <label>password</label>
       </div>
 
-      <button class="w-100 btn btn-lg btn-primary mt-2 mb-3" type="button" id="signup-btn">sign up</button>
+      <button class="w-100 btn btn-lg btn-primary mt-2 mb-3" type="submit" id="signup-btn" value="Register">sign up</button>
       
       <div>
-        <label>already a viber? <a href="/client/">sign in</a></label>
+        <label>already a viber? <a href="/login">sign in</a></label>
       </div>
 
     </form>
