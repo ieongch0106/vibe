@@ -1,159 +1,58 @@
 import express from 'express';
-import { readFile, writeFile } from 'fs/promises';
-import logger from 'morgan';
+import { VibeDatabase } from './user-db.js';
 
-const USER_FILE = './database/user.json';
-const PARTIES_FILE = './database/parties.json';
-
-// Returns a function that will read an user file.
-function readUserFile(path) {
-  return async () => {
-    try {
-      const userFile = await readFile(path, 'utf8');
-      const users = JSON.parse(userFile);
-      return users;
-    } catch (error) {
-      // Likely the file doesn't exist
-      return [];
-    }
-  };
-}
-
-// Create functions for reading from files.
-const readUser = readUserFile(USER_FILE);
-const readParties = readUserFile(PARTIES_FILE);
-
-//check if an user has already existed
-async function userExist(Username) {
-  const users = await readUser();
-  for (const user of users) {
-    if (user.id === Username) {
-      return true
-    }
+class VibeServer {
+  constructor(dburl) {
+    this.dburl = dburl;
+    this.app = express();
+    this.app.use('/client/index.html', express.static('client'));
   }
-  return false
-}
 
-// a function that will save the current user file.
-function saveCurrentFile(path, file) {
-  writeFile(path, JSON.stringify(file), 'utf8');
-}
+  async initRoutes() {
+    // Note: when using arrow functions, the "this" binding is lost.
+    const self = this;
 
-// Returns a function that will save and add a profile to an user file.
-function saveToUserFile(path) {
-  return async (id, password) => {
-    const data = { id, password };
-    const users = await readUser();
-    users.push(data);
-    writeFile(path, JSON.stringify(users), 'utf8');
-  };
-}
-
-function saveToPartiesFile(path) {
-  return async (name, zip, description) => {
-    const data = { name, zip, description };
-    const parties = await readParties();
-    parties.push(data);
-    writeFile(path, JSON.stringify(parties), 'utf8');
-  };
-}
-
-// Create functions for saving to user file.
-const saveUser = saveToUserFile(USER_FILE);
-const saveParties = saveToPartiesFile(PARTIES_FILE);
-
-async function verifyUser(Username, Password) {
-  const users = await readUser()
-  for (const user of users) {
-    if (user.id === Username) {
-      if (user.password === Password) {
-        return 200
-      } else {
-        return 401
+    this.app.post('/user/register', async (req, res) => {
+      try {
+        const { id, username, password } = req.query;
+        const user = await self.db.addUser(id, username, password);
+        res.status(200).json(user);
+      } catch (err) {
+        res.status(500).send(err);
       }
-    }
+    });
+
+    this.app.get('/login', async (req, res) => {
+      try {
+        const { username, password } = req.query;
+        const result = await self.db.verifyUser(username, password);
+        if (result === '200') {
+            res.status(200).json({ 'Status': 'Success' });
+        } else if (result === 401) {
+            res.status(401).json({ 'Error': 'Unauthorized' });
+        } else {
+            res.status(404).json({ 'Error': 'User Not Found' });
+        }
+      } catch (err) {
+        res.status(500).send(err);
+      }
+    });
   }
-  return 404
+
+  async initDb() {
+    this.db = new VibeDatabase(this.dburl);
+    await this.db.connect();
+  }
+
+  async start() {
+    await this.initRoutes();
+    await this.initDb();
+    const port = process.env.PORT || 3000;
+    this.app.listen(port, () => {
+      console.log(`VibeServer listening on port ${port}!`);
+    });
+  }
 }
 
-async function addZipCode(Username, zipcode) {
-  let index = 0
-  const users = await readUser()
-  for (const user of users) {
-    if (user.id === Username) {
-      users[index]['zipcode'] = zipcode
-    }
-    ++index
-  }
-  saveCurrentFile(USER_FILE, users)
-}
-
-// Create the Express app and set the port number.
-const app = express();
-const port = 3000;
-
-// Add Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-app.use(logger('dev'));
-app.use('/client', express.static('client'));
-
-app.post('/user/register', async (req, res) => {
-  const data = req.query;
-  const check = await userExist(data.id);
-  if (!check) {
-    await saveUser(data.id, data.password);
-    res.status(200).json({ 'Status': 'Success' });
-  } else {
-    res.status(409).json({ 'Error': 'Conflict' });
-  }
-});
-
-app.get('/login', async (req, res) => {
-  const data = req.query;
-  const result = await verifyUser(data.id, data.password)
-  if (result === 200) {
-    res.status(200).json({ 'Status': 'Success' })
-  } else if (result === 401) {
-    res.status(401).json({ 'Error': 'Unauthorized' })
-  } else {
-    res.status(404).json({ 'Error': 'User Not Found' })
-  }
-});
-
-app.post('/user/profile/zipcode/new', async (req, res) => {
-  const data = req.query;
-  await addZipCode(data.id, data.zipcode)
-  res.status(200).json({ 'Status': 'Success' })
-});
-
-app.get('/home', async (req, res) => {
-  const parties = await readParties();
-  res.status(200).json(parties);
-});
-
-app.get('/myinfo', async (req, res) => {
-  const user = await readUser();
-  res.status(200).json(user);
-});
-
-app.get('/search', async (req, res) => {
-  const parties = await readParties();
-  res.status(200).json(parties);
-});
-app.post('/user/host', async (req, res) => {
-  const data = req.query;
-  await saveParties(data.name, data.zip, data.description);
-  res.status(200).json({ 'Status': 'Success' });
-});
-
-// This matches all routes that are not defined.
-app.all('*', async (request, response) => {
-  response.status(404).send(`Not found: ${request.path}`);
-});
-
-// Start the server.
-app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
-});
+const server = new VibeServer(process.env.DATABASE_URL);
+server.start();
