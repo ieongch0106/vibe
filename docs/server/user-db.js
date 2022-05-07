@@ -22,38 +22,40 @@ export class VibeDatabase {
         this.user = this.db.collection('user');
     }
 
-    async close() {
-        this.client.close();
-    }
-
-    async addUser(id, username, password) {
-        if (!this.userExist(username)) {
-            await this.user.insertOne({_id: id, username, password});
-            return '200';
+    async addUser(username, password) {
+        const check = await this.findUser(username);
+        if (!check) {
+            await this.user.insertOne({username, password});
+            return true;
         } else {
-            return '409';
-        }
-    }
-
-    async verifyUser(name, password) {
-        const res = await this.user.find().sort({username: name}).toArray();
-        if (res.length == 0) {
-            return '404';
-        } else {
-            if (res.password == password) {
-                return '200';
-            } else {
-                return '401';
-            }
-        }
-    }
-
-    async userExist(name) {
-        const res = await this.user.find().sort({username: name}).toArray();
-        if (res.length != 0) {
             return false;
-        } else {
+        }
+    }
+
+    async validatePassword(name, pwd) {
+        const res = await this.user.find({username: name, password: pwd}).toArray();
+        if (res.length !== 0) {
             return true;
         }
+        return false;
+    }
+
+    async findUser(name) {
+        const res = await this.user.find({username: name}).toArray();
+        if (res.length !== 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    async addZipCode(name, zipCode) {
+        const user = await this.user.find({username: name}).toArray();
+        this.user.update({_id: user[0]._id}, {$set: {'zipcode': zipCode}});
+        return user
+    }
+
+    async close() {
+        this.client.close();
     }
 }
