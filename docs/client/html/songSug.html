@@ -66,66 +66,91 @@
     
 
 <div class="bd-cheatsheet container-fluid bg-body">
-  <section id="content">
-    <h2></h2>
-
-    <!-- <article class="my-3" id="typography"> -->
-      <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-      </div>
-
-    </article>
-    <!-- <article class="my-3" id="input-group"> -->
       <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
       </div>
 
       <div>
         <div class="bd-example">
-        <div> 
-          <label for="basic-url" class="form-label">Parties in your Area</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Party Name:</span>
+          <span class="form-control" >Vibe</span>
         </div>
-        <div class="bd-example"> 
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Party Host:</span>
-          <a class="nav-link" href="songSug.html">Erin liu Theme: 80's music</a>
+          <span class="form-control" >Tim Richards</span>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Party Theme:</span>
+          <span class="form-control" >80's Music</span>
+        </div>
+        <label for="basic-url" class="form-label">Song Suggestions</label>
+        <div class="input-group">
+          <span class="input-group-text">YOUR SONG</span>
+          <input type = "text" id = "songName" class="form-control" placeholder="ABBA Gimme Gimme" aria-label="With textarea"></input>
+          <button id = "submit" class="input-group-text">Submit</button>
+        </div>
+        <div>
+          <table id="song-table" class="m-auto center">
+            <tr>
+              <th>Name</th>
+              <th>Likes</th>
+            </tr>
+          </table>
+        </div>
+      <div>
+        <div class="input-group" >
+          <script>
+            count = 0;
+            async function updateSong(id, likes) {
+              const data = JSON.stringify({ id, likes });
+              const response = await fetch('/UpdateLikes', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: data,
+              });
+              if (!response.ok) {
+                console.error(`Unable to save ${data} to server`);
+              }
+            } 
 
+            function myFunction(id) {
+              if(count <3){
+                let likeCount = document.getElementById(id);
+                console.log(likeCount.value)
+                let temp = parseInt(likeCount.value);
+                console.log(temp)
+                temp +=1
+                likeCount.value = temp;
+                // updateSong(id, temp);
+                count +=1
+              }
+            }
+          </script>
+          <span id = "name1" class="form-control">User1: Sunflower by Post Malone</span>
+          <span class="input-group-text">Likes</span>
+          <input id = "like1" type = "button" value = "48" onclick="myFunction(id)"></input>
         </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Party Host:</span>
-          <a class="nav-link" href="songSug.html">Tim Richards Theme: 80's music</a>
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Party Host:</span>
-          <a class="nav-link" href="songSug.html">Arjun Karuvally Theme: Taylor Swift</a>
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Party Host:</span>
-          <a class="nav-link" href="songSug.html">Bryce Parkman Theme: Indie</a>
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Party Host:</span>
-          <a class="nav-link" href="songSug.html">Nicolas Radhkrishna Theme: Rap</a>
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Party Host:</span>
-          <a class="nav-link" href="songSug.html">Purva Jhaveru Theme: 80's music</a>
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Party Host:</span>
-          <a class="nav-link" href="songSug.html">Nikhil Kagita Theme: Rock</a>
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Party Host:</span>
-          <a class="nav-link" href="songSug.html">Pratik Mulchandani Theme: Rap</a>
-        </div>
-      </div>
         
-        <!-- <div class="input-group"> -->
-
-          <!-- <span class="form-control"  aria-label="Amount (to the nearest dollar)"></span> -->
+        <div class="input-group">
+          <span id = "name2" type="text" class="form-control" >User2: Cardi B WAP</span>
+          <span class="input-group-text">Likes</span>
+          <input id = "like2" type = "button" value = "27" onclick="myFunction(id)"></input>
         </div>
+
+        <div class="input-group">
+          <span id = "name3" type="text" class="form-control" >User3: MIKE HUNT</span>
+          <span class="input-group-text">Likes</span>
+          <input id = "like3" type = "button" value = "4" onclick="myFunction(id)"></input>
+        </div>
+
+        <div class="input-group" id = "add">
+        </div>
+        <span> </span>
+      </div>
       </div>
     </article>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
       <script src="cheatsheet.js"></script>
   </body>
