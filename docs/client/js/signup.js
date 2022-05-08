@@ -4,7 +4,14 @@ const signup = document.getElementById('signup-btn')
 
 const ls = window.localStorage;
 const lsSet = (k, v) => ls.setItem(k, v);
-signup.addEventListener('submit', lsSet('user', JSON.stringify( {'id': document.getElementById('username').value} )));
+
+signup.addEventListener('click', ()=> lsSet('user', JSON.stringify( {'id': username.value} )));
+//     event.preventDefault();
+//     // alert(event.target.username);
+//     // alert(document.getElementById('username').value)
+//     // alert(document.querySelector('form'))
+//     lsSet('user', JSON.stringify( {'id': event.target.username} ))
+//     });
 
 // async function addUser() {
 //     const id = username.value;
