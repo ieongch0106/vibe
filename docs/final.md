@@ -21,6 +21,16 @@
 ## location
 • get the location of the user so we can show the user the best parties near them
 ![Screenshot 2022-03-26 214925](https://user-images.githubusercontent.com/71384413/160263199-c855e159-1eee-49c3-995e-aae2f2f2dd64.jpg)
+## Browse Parties/Explore
+• It returns user a page of random parties in our party database.
+![Vibe - Browse page@1 25x](https://user-images.githubusercontent.com/71384413/159188202-d2a6f01d-3f36-42b1-827d-f651c8c0703d.png)
+## Party page
+• After the user clicked the party. It links to a page which contains all info of the party, and the user has the option to like and submit their song suggestion.
+![Vibe - Party Page@1 25x](https://user-images.githubusercontent.com/71384413/159188173-6178c50a-6575-4628-8d5c-0d445103f35b.png)
+## Party page after submit
+• After the user clicked 'submit'. It links to a page which contains all info of the party, and the user can see the song they have submitted. <br>
+• User has the option to like and delete their song suggestion.
+![Vibe - Party Page After Submit@1 25x](https://user-images.githubusercontent.com/71384413/159188177-707a0ee9-a9e4-46d7-8541-da00253d5608.png)
 # 7 
 ## login
 **POST** method and the form body in HTML contains an username and password. This API will only be called in the 'index.html'<br>
