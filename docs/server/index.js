@@ -68,15 +68,6 @@ class VibeServer {
       }
     });
 
-    this.app.post('/register', (req, res) => {
-      const { username, password } = req.body;
-      if (users.addUser(username, password)) {
-        res.redirect('html/location.html');
-      } else {
-        res.redirect('/register');
-      }
-    });
-
     this.app.get('/register', (req, res) => {
       res.sendFile('client/html/signup.html', { root: __dirname })
     });
