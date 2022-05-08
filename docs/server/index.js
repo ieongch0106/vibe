@@ -68,15 +68,6 @@ class VibeServer {
       }
     });
 
-    this.app.post('/register', (req, res) => {
-      const { username, password } = req.body;
-      if (users.addUser(username, password)) {
-        res.redirect('html/location.html');
-      } else {
-        res.redirect('/register');
-      }
-    });
-
     this.app.get('/register', (req, res) => {
       res.sendFile('client/html/signup.html', { root: __dirname })
     });
@@ -101,8 +92,10 @@ class VibeServer {
     });
     
     this.app.get('/myinfo', async (req, res) => {
-      const user = await this.db.readUser();
+      let un = window.localStorage.getItem('username');
+      const user = await this.db.readProfile(un);
       res.status(200).json(user);
+
     });
     
     this.app.get('/search', async (req, res) => {
@@ -140,3 +133,4 @@ class VibeServer {
 
 const server = new VibeServer(process.env.DATABASE_URL);
 server.start();
+
