@@ -63,6 +63,6 @@ export class VibeDatabase {
         this.client.close();
     }
     async readProfile(name){
-        return await this.user.findOne({username : name}).toArray();
+        return await this.user.find({username : name}).toArray();
     }
 }
