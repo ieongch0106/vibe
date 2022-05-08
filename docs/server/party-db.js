@@ -34,4 +34,8 @@ export class VibeDatabaseParty {
     async readParties() {
         return await this.party.find({}).toArray();
     }
+
+    async searchParties(name) {
+        return await this.party.find({"name": name}).toArray();
+    }
 }

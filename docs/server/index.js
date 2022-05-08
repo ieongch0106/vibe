@@ -101,9 +101,11 @@ class VibeServer {
     });
     
     this.app.get('/search', async (req, res) => {
-      const parties = await this.dbParty.readParties();
+      const data = req.query;
+      const parties = await this.dbParty.searchParties(data.name);
       res.status(200).json(parties);
     });
+    
     this.app.post('/user/host', async (req, res) => {
       const data = req.query;
       await this.dbParty.addParty(data.name, data.zip, data.description);
