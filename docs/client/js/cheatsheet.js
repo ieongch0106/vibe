@@ -68,31 +68,6 @@
     }
   }
 
-  async function saveSong(name, likes) {
-    const data = JSON.stringify({ name, likes });
-    const response = await fetch('/songRequest', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: data,
-    });
-    if (!response.ok) {
-      console.error(`Unable to save ${data} to server`);
-    }
-  }
-
-
-  document.getElementById('submit').addEventListener('click', async () => {
-    // async function addSong(name){
-      
-    document.getElementById("add").innerHTML = '<div class="input-group"><span type="text" id = "user4" class="form-control" value = document.getElementById("songName").value ></span><span class="input-group-text">Likes</span><input id = "like4" type = "button" value = "0" onclick="myFunction(id)"></input></div>';
-    document.getElementById("user4").innerText = "Jack1234: " + document.getElementById("songName").value;
-    console.log( document.getElementById("user4"))
-    // await saveSong("Juju: " + document.getElementById("user4").value, 0);
-    });
-
   setActiveItem()
   window.addEventListener('hashchange', setActiveItem)
-
 })()

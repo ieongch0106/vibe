@@ -1,4 +1,3 @@
-
 const username1 = document.getElementById('username');
 const email = document.getElementById("email");
 const name1 = document.getElementById("name");
@@ -21,11 +20,11 @@ async function displayUsers() {
         method: 'GET'
     }).then(response => response.json())
         .then(data => {
-            console.log(data[0].username);
-            username1.textContent = data[0].username;
-            name1.textContent  = data[0].username;
-            email.textContent = data[0].email;
-            zipcode.textContent = data[0].zipcode;
+            console.log(data[data.length-1].username);
+            username1.textContent = data[data.length-1].username;
+            name1.textContent  = data[data.length-1].username;
+            email.textContent = data[data.length-1].email;
+            zipcode.textContent = data[data.length-1].zipcode;
             
         }).catch(error => {
             console.log(error)
@@ -34,8 +33,3 @@ async function displayUsers() {
 
 displayUsers();
 
-
-
-
-
- 
