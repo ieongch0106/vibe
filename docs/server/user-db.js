@@ -50,7 +50,10 @@ export class VibeDatabase {
     }
 
     async addZipCode(name, zipCode) {
+        console.log('hi')
+        console.log(name, zipCode)
         const user = await this.user.find({username: name}).toArray();
+        console.log(user)
         this.user.update({_id: user[0]._id}, {$set: {'zipcode': zipCode}});
         return user
     }

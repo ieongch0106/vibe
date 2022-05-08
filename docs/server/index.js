@@ -62,6 +62,7 @@ class VibeServer {
     this.app.post('/register', (req, res) => {
       const { username, password } = req.body;
       if (users.addUser(username, password)) {
+        this.db.addUser(username, password);
         res.redirect('html/location.html');
       } else {
         res.redirect('/register');
@@ -82,7 +83,8 @@ class VibeServer {
 
     this.app.post('/user/profile/zipcode/new', async (req, res) => {
       const data = req.query;
-      await this.db.addZipCode(data.id, data.zipcode)
+      console.log(data)
+      await this.db.addZipCode(data.username, data.zipcode)
       res.status(200).json({ 'Status': 'Success' })
     });
     

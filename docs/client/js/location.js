@@ -18,20 +18,20 @@ ZipCode.addEventListener('input', () => {
     }
 })
 async function addZipCode() {
-    // const id = JSON.parse(lsGet('user')).id
+    const id = JSON.parse(lsGet('username'))
+    console.log(id)
     lsSet('zipcode', JSON.stringify(ZipCode.value))
-    location.href = 'home.html'
-    // const zc = ZipCode.value
-    // await fetch(`/user/profile/zipcode/new?username=${id}&zipcode=${zc}`, {
-    //     method: 'POST'
-    // }).then(response => response.json())
-    // .then(data => {
-    //     if (data.Status === 'Success') {
-    //         location.href = 'home.html'
-    //     } else {
-    //         alert(JSON.stringify(data))
-    //     }
-    // }).catch(error => {
-    //     console.log(error)
-    // })
+    const zc = ZipCode.value
+    await fetch(`/user/profile/zipcode/new?username=${id}&zipcode=${zc}`, {
+        method: 'POST'
+    }).then(response => response.json())
+    .then(data => {
+        if (data.Status === 'Success') {
+            location.href = 'home.html'
+        } else {
+            alert(JSON.stringify(data))
+        }
+    }).catch(error => {
+        console.log(error)
+    })
 }
