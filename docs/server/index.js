@@ -68,15 +68,6 @@ class VibeServer {
       }
     });
 
-    this.app.post('/register', (req, res) => {
-      const { username, password } = req.body;
-      if (users.addUser(username, password)) {
-        res.redirect('html/location.html');
-      } else {
-        res.redirect('/register');
-      }
-    });
-
     this.app.get('/register', (req, res) => {
       res.sendFile('client/html/signup.html', { root: __dirname })
     });
@@ -88,10 +79,6 @@ class VibeServer {
         res.redirect('html/home.html');
       }
     );
-
-    this.app.get('*', (req, res) => {
-      res.send('Error');
-    });
 
     this.app.post('/user/profile/zipcode/new', async (req, res) => {
       const data = req.query;
@@ -146,3 +133,4 @@ class VibeServer {
 
 const server = new VibeServer(process.env.DATABASE_URL);
 server.start();
+
