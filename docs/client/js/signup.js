@@ -5,7 +5,7 @@ const signup = document.getElementById('signup-btn')
 const ls = window.localStorage;
 const lsSet = (k, v) => ls.setItem(k, v);
 
-signup.addEventListener('click', ()=> lsSet('user', JSON.stringify( {'id': username.value} )));
+signup.addEventListener('click', ()=> lsSet('username', JSON.stringify(username.value)));
 //     event.preventDefault();
 //     // alert(event.target.username);
 //     // alert(document.getElementById('username').value)

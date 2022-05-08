@@ -17,10 +17,9 @@ ZipCode.addEventListener('input', () => {
         ZipCode.style.color = 'red'
     }
 })
-
 async function addZipCode() {
     // const id = JSON.parse(lsGet('user')).id
-    lsSet('zipcode', JSON.stringify( {'zipcode': ZipCode.value} ))
+    lsSet('zipcode', JSON.stringify(ZipCode.value))
     location.href = 'home.html'
     // const zc = ZipCode.value
     // await fetch(`/user/profile/zipcode/new?username=${id}&zipcode=${zc}`, {
