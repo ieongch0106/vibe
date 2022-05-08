@@ -107,6 +107,45 @@ class VibeServer {
       await this.dbParty.addParty(data.name, data.zip, data.description);
       res.status(200).json({ 'Status': 'Success' });
     });
+
+    this.app.post('/songRequest', async (req, res) => {
+      try {
+        const { name, likes } = req.query;
+        const newSong = await this.db.addSong(name, likes);
+        res.status(200).send(newSong);
+      } catch (err) {
+        res.status(500).send(err);
+      }
+    });
+
+    this.app.post('/UpdateLikes', async (req, res) => {
+      try {
+        const { name, likes } = req.query;
+        const newSong = await this.db.update(name, likes);
+        res.status(200).send(newSong);
+      } catch (err) {
+        res.status(500).send(err);
+      }
+    });
+
+    this.app.get('/song', async (req, res) => {
+      try {
+        const { username, password } = req.query;
+        const result = await self.db.verifyUser(username, password);
+        const data = await this.db.addSong(result);
+        if (result === '200') {
+            // res.status(200).json({ 'Status': 'Success' });
+            result.status(200).send(data);
+
+        } else if (result === 401) {
+            res.status(401).json({ 'Error': 'Unauthorized' });
+        } else {
+            res.status(404).json({ 'Error': 'User Not Found' });
+        }
+      } catch (err) {
+        res.status(500).send(err);
+      }
+    });
     
     // This matches all routes that are not defined.
     this.app.all('*', async (request, response) => {
