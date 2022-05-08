@@ -105,8 +105,10 @@ class VibeServer {
     });
     
     this.app.get('/myinfo', async (req, res) => {
-      const user = await this.db.readUser();
+      let un = window.localStorage.getItem('username');
+      const user = await this.db.readProfile(un);
       res.status(200).json(user);
+
     });
     
     this.app.get('/search', async (req, res) => {

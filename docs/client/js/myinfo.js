@@ -1,5 +1,6 @@
+import { response } from "express";
 
-const username = document.getElementById('username');
+const username1 = document.getElementById('username');
 const email = document.getElementById("email");
 const name1 = document.getElementById("name");
 const zipcode = document.getElementById("zipcode");
@@ -21,10 +22,9 @@ async function displayUsers() {
         method: 'GET'
     }).then(response => response.json())
         .then(data => {
-            const user_data = date;
-            username.textContent = user_data.id;
-            name1.textContent  = user_data.id;
-            zipcode.textContent = user_data.zipcode;
+            username1.textContent = response[0].username;
+            name1.textContent  = response[0].username;
+            zipcode.textContent = response[0].zipcode;
             
         }).catch(error => {
             console.log(error)

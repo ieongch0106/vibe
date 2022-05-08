@@ -58,4 +58,7 @@ export class VibeDatabase {
     async close() {
         this.client.close();
     }
+    async readProfile(name){
+        return await this.user.findOne({username : name}).toArray();
+    }
 }
