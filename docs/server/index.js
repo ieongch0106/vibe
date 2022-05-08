@@ -131,3 +131,4 @@ class VibeServer {
 
 const server = new VibeServer(process.env.DATABASE_URL);
 server.start();
+
