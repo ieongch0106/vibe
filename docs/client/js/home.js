@@ -11,7 +11,7 @@ async function displayParties() {
             const numElem = parties.length > 5 ? 5 : parties.length;
             for (let i = 0; i < numElem; ++i) {
                 const li = document.createElement('li');
-                const text = document.createTextNode(parties[i].name);
+                const text = document.createTextNode(parties[i].name + " - " + parties[i].description);
                 li.appendChild(text);
                 partiesClass[0].appendChild(li)
             }
