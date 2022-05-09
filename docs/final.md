@@ -46,4 +46,5 @@ Then the server will find the user object in the mongodb and adds member 'zipcod
 ## Entire project:
 ### Chou Heng Ieong: <br>summarize and clean up code, write documents.<br> <u>milestone1:</u> Designed wireframes, navigation bars and logo. Summarized and made changes and updated on html/css files. <br><u>milestone2:</u> Implemented front-end and back-end of login page, sign up page and location page. Created server/index.js and implemented 3 routing methods. Created database/user.json to store user's data. Deploy Heroku App <br><u>milestone3:</u> implemented auth.js, users.js and 3 routing methods in user-db.js: /login, /register and /user/profile/zipcode/new, changed database from user.json to mongodb. Heroku App deployment. <br>
 Mohammed Aaquil Khan - Implemented 'party-db.js' which connects to the party database on mongodb. Implemented and connected host.html, home.html pages to the mongodb database. Written a function for search.html in the party-db.js file.
+Arnav Mohan - Implemented front end and back-end of myInfo page to display the data of the currently sign in user, developed search.js to showcase search bar results.
 # 12
